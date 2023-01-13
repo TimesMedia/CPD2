@@ -25,6 +25,18 @@ namespace CPD2.Data
 {
 }
 
+namespace CPD2.Data
+{
+}
+
+namespace CPD2.Data
+{
+}
+
+namespace CPD2.Data
+{
+}
+
 namespace CPD2.Data.DataSet1TableAdapters
 {
     partial class ResultTableAdapter

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPD2.Web", "CPD2.Web\CPD2.Web.csproj", "{E6F92033-8EA4-4ADA-AA30-6B853A96F16D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPD2.Data", "CPD2.Data\CPD2.Data.csproj", "{54935490-591D-4129-A002-41E674C108B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPD2.Data", "CPD2.Data\CPD2.Data.csproj", "{54935490-591D-4129-A002-41E674C108B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPD2.Capture", "CPD2.Capture\CPD2.Capture.csproj", "{C133B36E-C552-4684-9C4E-C01680C07E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPD2.Capture", "CPD2.Capture\CPD2.Capture.csproj", "{C133B36E-C552-4684-9C4E-C01680C07E55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPD2.Web2", "CPD2.Web2\CPD2.Web2.csproj", "{05F9F276-EE44-44CB-AD6A-CFF960CE5479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6F92033-8EA4-4ADA-AA30-6B853A96F16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6F92033-8EA4-4ADA-AA30-6B853A96F16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6F92033-8EA4-4ADA-AA30-6B853A96F16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6F92033-8EA4-4ADA-AA30-6B853A96F16D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54935490-591D-4129-A002-41E674C108B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54935490-591D-4129-A002-41E674C108B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54935490-591D-4129-A002-41E674C108B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{C133B36E-C552-4684-9C4E-C01680C07E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C133B36E-C552-4684-9C4E-C01680C07E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C133B36E-C552-4684-9C4E-C01680C07E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05F9F276-EE44-44CB-AD6A-CFF960CE5479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F9F276-EE44-44CB-AD6A-CFF960CE5479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F9F276-EE44-44CB-AD6A-CFF960CE5479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F9F276-EE44-44CB-AD6A-CFF960CE5479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

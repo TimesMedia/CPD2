@@ -41,12 +41,11 @@
             </Style.Triggers>
         </Style>
 
-        <Data:DataSet1 x:Key="DataSet1"/>
-        <CollectionViewSource x:Key="SurveyViewSource" Source="{Binding Survey2, Source={StaticResource DataSet1}}"/>
-        <CollectionViewSource x:Key="ModuleViewSource" Source="{Binding FK_Module_Survey2, Source={StaticResource SurveyViewSource}}"/>
-        <CollectionViewSource x:Key="ArticleViewSource" Source="{Binding FK_Article_Module, Source={StaticResource ModuleViewSource}}"/>
-        <CollectionViewSource x:Key="QuestionViewSource" Source="{Binding FK_Question_Article, Source={StaticResource ArticleViewSource}}"/>
-        <CollectionViewSource x:Key="AnswerViewSource" Source="{Binding FK_Answer_Question, Source={StaticResource QuestionViewSource}}"/>
+        <CollectionViewSource x:Key="SurveyViewSource"/>
+        <CollectionViewSource x:Key="ModuleViewSource" Source="{Binding Modules, Source={StaticResource SurveyViewSource}}"/>
+        <CollectionViewSource x:Key="ArticleViewSource" Source="{Binding Articles, Source={StaticResource ModuleViewSource}}"/>
+        <CollectionViewSource x:Key="QuestionViewSource" Source="{Binding Questions, Source={StaticResource ArticleViewSource}}"/>
+        <CollectionViewSource x:Key="AnswerViewSource" Source="{Binding Answers, Source={StaticResource QuestionViewSource}}"/>
     </Window.Resources>
     <Grid>
         <TabControl x:Name="CPDTabControl" Width="auto " Margin="10">
@@ -165,7 +164,6 @@
                         <Label Content="Advert URL"/>
                         <Label Content="HorisontalAdvert URL"/>
                         <Label Content="EBook URL"/>
-                        <Button x:Name="ButtonUpdateModule" Height="30" Click="ButtonUpdateModule_Click">Update Module</Button>
 
                         <Button x:Name="ButtonTest" Height="30" Click="ButtonTest_Click">Test</Button>
 
@@ -192,7 +190,6 @@
                             <DataGridTextColumn x:Name="ArticleColumn" Binding="{Binding Naam}" Header="Article"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="ButtonUpdateArticle" Grid.Row="3" Grid.Column="3" Click="ButtonUpdateArticle_Click"  Width="100">Update Article</Button>
                 </Grid>
 
             </TabItem>
@@ -223,7 +220,7 @@
                                         <DataTemplate>
                                             <TextBox Height="Auto" Margin="3" TextWrapping="Wrap">
                                                 <TextBox.Text>
-                                                    <Binding Path="Question" NotifyOnValidationError="True"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding Path="Question1" NotifyOnValidationError="True"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                                         <Binding.ValidationRules>
                                                             <ExceptionValidationRule/>
                                                         </Binding.ValidationRules>
@@ -236,7 +233,6 @@
 
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button x:Name="ButtonUpdateQuestion" Height="20" Click="ButtonUpdateQuestion_Click">Update Question</Button>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
@@ -251,7 +247,7 @@
                                         <DataTemplate>
                                             <TextBox Height="Auto" Margin="3" TextWrapping="Wrap">
                                                 <TextBox.Text>
-                                                    <Binding Path="Answer" NotifyOnValidationError="True"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" >
+                                                    <Binding Path="Answer1" NotifyOnValidationError="True"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" >
                                                         <Binding.ValidationRules>
                                                             <ExceptionValidationRule/>
                                                         </Binding.ValidationRules>
@@ -265,7 +261,6 @@
                                 <DataGridCheckBoxColumn x:Name="correctColumn" Binding="{Binding Correct}" Header="Correct" Width="60" IsThreeState="False"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button x:Name="ButtonUpdateAnswer" Height="20" Click="ButtonUpdateAnswer_Click">Update Answer</Button>
                     </StackPanel>
                     <GridSplitter Grid.Column="2" Grid.RowSpan="2" Background="Black"  ResizeBehavior="BasedOnAlignment" HorizontalAlignment="Stretch" Width="5" 
                                   ShowsPreview="True" ></GridSplitter>

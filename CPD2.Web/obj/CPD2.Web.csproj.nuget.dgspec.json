@@ -4,14 +4,14 @@
     "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj": {}
   },
   "projects": {
-    "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj": {
+    "C:\\CSharpCore\\CPD2\\CPD2.Data\\CPD2.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj",
-        "projectName": "CPD2.Web",
-        "projectPath": "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj",
+        "projectUniqueName": "C:\\CSharpCore\\CPD2\\CPD2.Data\\CPD2.Data.csproj",
+        "projectName": "CPD2.Data",
+        "projectPath": "C:\\CSharpCore\\CPD2\\CPD2.Data\\CPD2.Data.csproj",
         "packagesPath": "C:\\Users\\ReitmannH\\.nuget\\packages\\",
-        "outputPath": "C:\\CSharpCore\\CPD2\\CPD2.Web\\obj\\",
+        "outputPath": "C:\\CSharpCore\\CPD2\\CPD2.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ReitmannH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,88 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.Common": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj",
+        "projectName": "CPD2.Web",
+        "projectPath": "C:\\CSharpCore\\CPD2\\CPD2.Web\\CPD2.Web.csproj",
+        "packagesPath": "C:\\Users\\ReitmannH\\.nuget\\packages\\",
+        "outputPath": "C:\\CSharpCore\\CPD2\\CPD2.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ReitmannH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\CSharpCore\\CPD2\\CPD2.Data\\CPD2.Data.csproj": {
+                "projectPath": "C:\\CSharpCore\\CPD2\\CPD2.Data\\CPD2.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

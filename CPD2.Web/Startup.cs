@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +25,15 @@ namespace CPD2.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -41,7 +52,7 @@ namespace CPD2.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+                  
             app.UseRouting();
 
             app.UseAuthorization();
@@ -52,6 +63,7 @@ namespace CPD2.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+           
         }
     }
 }

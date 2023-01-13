@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+
+    .container {
+        display: flex;
+        margin-left: 12px;
+        flex-flow: nowrap;
+    }
+
+        .container div:nth-of-type(1n+2) {
+            margin-left: 5px;
+        }
+
+        .container div {
+            margin-bottom: 10px
+        }
+
+
+    .col1 {
+        flex: 0 1 80px;
+    }
+
+    .col2 {
+        flex: 1 1 120px;
+    }
+
+    .col3 {
+        flex: 0 1 120px;
+    }
+
+     .heading {
+            flex: 1 1 140px;
+            color: blue;
+        }
+   
+
+    .scrollable {
+        margin: 4px, 4px;
+        padding: 4px;
+        width: auto;
+        height: 500px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: justify;
+    }
+
+
+</style>
+
+<div class="container">
+    <h1 class="heading">Test History</h1>
+</div>
+<div class="container" style="color:purple;">
+    <div class="col1"><p>Command</p></div>
+    <div class="col2"><p>Module</p></div>
+    <div class="col1"><p>Date</p></div>
+    <div class="col1"><p>% Score</p></div>
+    <div class="col1"><p>Verdict</p></div>
+    <div class="col1"><p>Normal points</p></div>
+    <div class="col1"><p>Ethics points</p></div>
+</div>
+
+
+@{
+    string lCurrentPublication = "";
+}
+
+<div class="scrollable">
+    @if (@Model != null)
+    {
+        @foreach (CPD2.Data.History item in @Model)
+        {
+            if (lCurrentPublication != item.Publication)
+            {
+                lCurrentPublication = @item.Publication;
+
+                <p margin="10" style="color:red;">@item.Publication</p>
+            }
+           
+            <div class="container">
+                <div class="col1"><a asp-controller="Test" asp-action="EnrolModule" asp-route-id="@item.ResultId">Reissue</a></div>
+                <div class="col2">@item.Module</div>
+                <div class="col1">@item.Datum?.ToString("yyyy MM dd")</div>
+                <div class="col1">@item.Score</div>
+                <div class="col1">@item.Verdict</div>
+                <div class="col1">@item.NormalPoints?.ToString("#0.0")</div>
+                <div class="col1">@item.EthicsPoints?.ToString("#0.0")</div>
+            </div>
+        }
+    }
+
+
+</div>

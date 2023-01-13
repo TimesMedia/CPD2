@@ -1,0 +1,15 @@
+﻿@using CPD2.Data
+@model List<AvailableSurvey>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Catalogue of availible publications</h1>
+
+    @foreach (CPD2.Data.AvailableSurvey item in @Model)
+    {
+        <p>@item.Publication.</p>
+    }
+
+</div>

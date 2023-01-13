@@ -13,27 +13,28 @@ using System.Reflection;
 
 namespace CPD2.Data
 {
-    public class AvailableSurvey
+    public struct AvailableSurvey
     {
         public int SurveyId { get; set; }
-        public string? Publication { get; set; }
+        public string Publication { get; set; }
         public int IssueId { get; set; }
-        public string? EBookURL { get; set; }
-        public string? ExpirationDate { get; set; }
+        public string EBookURL { get; set; }
+        public string ExpirationDate { get; set; }
         public int? Facility { get; set; }
     }
 
 
-    public class AvailableModule
+    public struct AvailableModule
     { 
         public int ModuleId { get; set; }
-        public string? Publication { get; set; }
-        public string? Issue { get; set; }
-        public string? Module { get; set; }
+        public string Publication { get; set; }
+        public string Issue { get; set; }
+        public string Module { get; set; }
         public int? NormalPoints { get; set; }
         public int? EthicsPoints { get; set; }
         public int? Passrate { get; set; }
-        public string? Expiration {get; set; }
+        public string Expiration {get; set; }
+        public string AdvertURL { get; set; }
     }
   
        
@@ -46,11 +47,11 @@ namespace CPD2.Data
                     DbProviderFactory factory = SqlClientFactory.Instance;
 
                     // Now get the connection object.
-                    using (DbConnection connection = factory.CreateConnection())
+                    using (SqlConnection connection = new SqlConnection())
                     {
                         connection.ConnectionString = Settings.CPDConnectionString;
                         connection.Open();
-                        DbCommand command = factory.CreateCommand();
+                        SqlCommand command = new SqlCommand();
                         command.Connection = connection;
                         command.CommandText = "[dbo].[ModuleData.GetAvailableModules]";
                         command.CommandType = CommandType.StoredProcedure;
@@ -71,14 +72,14 @@ namespace CPD2.Data
                                     ModuleId = (int)dataReader[nameof(AvailableModule.ModuleId)],
                                     Publication = (string)dataReader[nameof(AvailableModule.Publication)],
                                     Issue = (string)dataReader[nameof(AvailableModule.Issue)],
-                                    Module = (string?)dataReader[nameof(AvailableModule.Module)],
+                                    Module = (string)dataReader[nameof(AvailableModule.Module)],
                                     NormalPoints = (int?)dataReader[nameof(AvailableModule.NormalPoints)],
                                     EthicsPoints = (int?)dataReader[nameof(AvailableModule.EthicsPoints)],
                                     Passrate = (int?)dataReader[nameof(AvailableModule.Passrate)],
-                                    Expiration = (string?)dataReader[nameof(AvailableModule.Expiration)]
+                                    Expiration = (string)dataReader[nameof(AvailableModule.Expiration)]
                                 };
 
-                                lResults.Add(lAvailibleModule);
+                            lResults.Add(lAvailibleModule);
                             }
                         }
                         return lResults;
@@ -98,7 +99,7 @@ namespace CPD2.Data
                         CurrentException = CurrentException.InnerException;
                     } while (CurrentException != null);
 
-                    throw ex;
+                    throw;
                 }
             }
 
@@ -111,11 +112,11 @@ namespace CPD2.Data
                 DbProviderFactory factory = SqlClientFactory.Instance;
 
                 // Now get the connection object.
-                using (DbConnection connection = factory.CreateConnection())
+                using (SqlConnection connection = new SqlConnection())
                 { 
                     connection.ConnectionString = Settings.CPDConnectionString;
                     connection.Open();
-                    DbCommand command = factory.CreateCommand();
+                    DbCommand command = new SqlCommand();
                     command.Connection = connection;
                     command.CommandText = "[dbo].[ModuleData.GetAvailableSurveys]";
                     command.CommandType = CommandType.StoredProcedure;
@@ -135,8 +136,8 @@ namespace CPD2.Data
                             SurveyId = (int)dataReader[nameof(AvailableSurvey.SurveyId)],
                             Publication = (string)dataReader[nameof(AvailableSurvey.Publication)],
                             IssueId = (int)dataReader[nameof(AvailableSurvey.IssueId)],
-                            EBookURL = (string?)dataReader[nameof(AvailableSurvey.EBookURL)],
-                            ExpirationDate = (string?)dataReader[nameof(AvailableSurvey.ExpirationDate)] };
+                            EBookURL = (string)dataReader[nameof(AvailableSurvey.EBookURL)],
+                            ExpirationDate = (string)dataReader[nameof(AvailableSurvey.ExpirationDate)] };
 
                             lSurveys.Add(lSurvey);
                         }
@@ -157,7 +158,7 @@ namespace CPD2.Data
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
-                throw ex;
+                throw;
             }
         }
 

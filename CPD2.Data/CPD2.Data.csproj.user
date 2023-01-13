@@ -5,5 +5,8 @@
     <None Update="DataSet1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Update="Module.dbml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>
