@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CPD2.Web2.props" />
+</Project>

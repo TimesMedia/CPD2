@@ -5,7 +5,7 @@
       <Column Name="Naam" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
       <Column Name="ExpirationDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Facility" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="XMLFileName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RTFFileName" Storage="_XMLFileName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="VerticalAdvertURL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="HorisontalAdvertURL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EBookURL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

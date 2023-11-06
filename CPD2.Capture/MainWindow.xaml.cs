@@ -211,13 +211,13 @@ namespace CPD2.Capture
                     TextRange lTextRange;
                     System.IO.FileStream lFileStream;
 
-                    if (!System.IO.File.Exists(lCurrentSurvey.XMLFileName))
+                    if (!System.IO.File.Exists(lCurrentSurvey.RTFFileName))
                     {
                         return;
                     }
 
                     lTextRange = new TextRange(gRichTextBox.Document.ContentStart, gRichTextBox.Document.ContentEnd);
-                    using (lFileStream = new System.IO.FileStream(lCurrentSurvey.XMLFileName, System.IO.FileMode.OpenOrCreate))
+                    using (lFileStream = new System.IO.FileStream(lCurrentSurvey.RTFFileName, System.IO.FileMode.OpenOrCreate))
                     {
                         lTextRange.Load(lFileStream, System.Windows.DataFormats.Rtf);
                     }
@@ -311,7 +311,7 @@ namespace CPD2.Capture
 
 
 
-                List<AvailableSurvey> lSurveys = ModuleData.GetAvailableSurveys(120072);
+                List<AvailableSurvey> lSurveys = ModuleData.GetAvailableTest(120072);
             MessageBox.Show(lSurveys.Count.ToString()); 
             }
             catch(Exception ex)

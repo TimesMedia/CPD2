@@ -1,0 +1,43 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CPD2.Web/1.0.0": {
+        "dependencies": {
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.18362.28"
+        },
+        "runtime": {
+          "CPD2.Web.dll": {}
+        }
+      },
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.18362.28": {
+        "runtime": {
+          "Microsoft.Windows.SDK.NET.dll": {
+            "assemblyVersion": "10.0.18362.24",
+            "fileVersion": "10.0.18362.28"
+          },
+          "WinRT.Runtime.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.1.40881"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CPD2.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.18362.28": {
+      "type": "runtimepack",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

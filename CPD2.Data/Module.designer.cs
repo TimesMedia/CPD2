@@ -158,8 +158,8 @@ namespace CPD2.Data
     partial void OnExpirationDateChanged();
     partial void OnFacilityChanging(string value);
     partial void OnFacilityChanged();
-    partial void OnXMLFileNameChanging(string value);
-    partial void OnXMLFileNameChanged();
+    partial void OnRTFFileNameChanging(string value);
+    partial void OnRTFFileNameChanged();
     partial void OnVerticalAdvertURLChanging(string value);
     partial void OnVerticalAdvertURLChanged();
     partial void OnHorisontalAdvertURLChanging(string value);
@@ -265,7 +265,7 @@ namespace CPD2.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XMLFileName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string XMLFileName
+		public string RTFFileName
 		{
 			get
 			{
@@ -275,11 +275,11 @@ namespace CPD2.Data
 			{
 				if ((this._XMLFileName != value))
 				{
-					this.OnXMLFileNameChanging(value);
+					this.OnRTFFileNameChanging(value);
 					this.SendPropertyChanging();
 					this._XMLFileName = value;
-					this.SendPropertyChanged("XMLFileName");
-					this.OnXMLFileNameChanged();
+					this.SendPropertyChanged("RTFFileName");
+					this.OnRTFFileNameChanged();
 				}
 			}
 		}

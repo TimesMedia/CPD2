@@ -45,6 +45,14 @@ namespace CPD2.Web2.Controllers
            return View(lBuzy);
         }
 
+        public  IActionResult Login()
+        { 
+            ViewBag.Message = "You are now logged in";
+            // Create a session state
+            return View("Index");
+        }
+
+
         public IActionResult History()
         {
             List<Data.History> lHistory = ResultData.GetHistory("History", 108244);
@@ -52,15 +60,22 @@ namespace CPD2.Web2.Controllers
         }
 
 
-        public IActionResult Enrol()
+        public IActionResult Read()
         {
-
-            List<AvailableSurvey> lSurveys = ModuleData.GetAvailableSurveys(108244);
-
+            List<AvailableSurvey> lSurveys = ModuleData.GetAvailableRead(108244);
             return View(lSurveys);
         }
 
 
+
+
+        public IActionResult Enrol()
+        {
+
+            List<AvailableSurvey> lSurveys = ModuleData.GetAvailableTest(108244);
+
+            return View(lSurveys);
+        }
 
         public IActionResult Privacy()
         {

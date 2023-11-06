@@ -103,7 +103,7 @@ namespace CPD2.Data
                 }
             }
 
-        public static List<AvailableSurvey> GetAvailableSurveys(int pCustomerId)
+        public static List<AvailableSurvey> GetAvailableTest(int pCustomerId)
         {
             try 
             { 
@@ -118,14 +118,9 @@ namespace CPD2.Data
                     connection.Open();
                     DbCommand command = new SqlCommand();
                     command.Connection = connection;
-                    command.CommandText = "[dbo].[ModuleData.GetAvailableSurveys]";
+                    command.CommandText = "[dbo].[ModuleData.GetAvailableTest]";
                     command.CommandType = CommandType.StoredProcedure;
-                    DbParameter lParameter1 = command.CreateParameter();
-                    lParameter1.ParameterName = "CustomerId";
-                    lParameter1.DbType = DbType.Int32;
-                    lParameter1.Value = pCustomerId;
-                    command.Parameters.Add(lParameter1);
-           
+                   
                     using (DbDataReader dataReader = command.ExecuteReader())
                     {
                         while (dataReader.Read())
@@ -154,13 +149,76 @@ namespace CPD2.Data
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, nameof(ModuleData), nameof(GetAvailableSurveys), "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, nameof(ModuleData), nameof(GetAvailableTest), "");
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
                 throw;
             }
         }
+
+
+        public static List<AvailableSurvey> GetAvailableRead(int pCustomerId)
+        {
+            try
+            {
+                List<AvailableSurvey> lSurveys = new List<AvailableSurvey>();
+
+                DbProviderFactory factory = SqlClientFactory.Instance;
+
+                // Now get the connection object.
+                using (SqlConnection connection = new SqlConnection())
+                {
+                    connection.ConnectionString = Settings.CPDConnectionString;
+                    connection.Open();
+                    DbCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "[dbo].[ModuleData.GetAvailableRead]";
+                    command.CommandType = CommandType.StoredProcedure;
+                    DbParameter lParameter1 = command.CreateParameter();
+                    lParameter1.ParameterName = "CustomerId";
+                    lParameter1.DbType = DbType.Int32;
+                    lParameter1.Value = pCustomerId;
+                    command.Parameters.Add(lParameter1);
+
+                    using (DbDataReader dataReader = command.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            AvailableSurvey lSurvey = new AvailableSurvey()
+                            {
+                                SurveyId = (int)dataReader[nameof(AvailableSurvey.SurveyId)],
+                                Publication = (string)dataReader[nameof(AvailableSurvey.Publication)],
+                                IssueId = (int)dataReader[nameof(AvailableSurvey.IssueId)],
+                                EBookURL = (string)dataReader[nameof(AvailableSurvey.EBookURL)],
+                                ExpirationDate = (string)dataReader[nameof(AvailableSurvey.ExpirationDate)]
+                            };
+
+                            lSurveys.Add(lSurvey);
+                        }
+                    }
+                    return lSurveys;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
+
+                Exception? CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, nameof(ModuleData), nameof(GetAvailableRead), "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+                throw;
+            }
+        }
+
+
+
 
         //public static int GetIssueId(int ModuleId)
         //{

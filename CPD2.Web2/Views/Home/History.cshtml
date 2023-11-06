@@ -10,29 +10,26 @@
         display: flex;
         margin-left: 12px;
         flex-flow: nowrap;
+        margin-bottom: 10px;
     }
 
-        .container div:nth-of-type(1n+2) {
+       /* .container div:nth-of-type(1n+2) {
             margin-left: 5px;
-        }
+        }*/
 
-        .container div {
+      /*  .container div {
             margin-bottom: 10px
         }
-
+*/
 
     .col1 {
-        flex: 0 1 80px;
+        flex: 1 1 80px;
     }
 
     .col2 {
         flex: 1 1 120px;
     }
-
-    .col3 {
-        flex: 0 1 120px;
-    }
-
+ 
      .heading {
             flex: 1 1 140px;
             color: blue;
@@ -40,13 +37,12 @@
    
 
     .scrollable {
-        margin: 4px, 4px;
-        padding: 4px;
+       /* margin: 4px, 4px;
+        padding: 4px;*/
         width: auto;
-        height: 500px;
-        overflow-x: hidden;
+        height: 450px;
         overflow-y: auto;
-        text-align: justify;
+        /*text-align: justify;*/
     }
 
 
@@ -55,16 +51,6 @@
 <div class="container">
     <h1 class="heading">Test History</h1>
 </div>
-<div class="container" style="color:purple;">
-    <div class="col1"><p>Command</p></div>
-    <div class="col2"><p>Module</p></div>
-    <div class="col1"><p>Date</p></div>
-    <div class="col1"><p>% Score</p></div>
-    <div class="col1"><p>Verdict</p></div>
-    <div class="col1"><p>Normal points</p></div>
-    <div class="col1"><p>Ethics points</p></div>
-</div>
-
 
 @{
     string lCurrentPublication = "";
@@ -79,7 +65,17 @@
             {
                 lCurrentPublication = @item.Publication;
 
-                <p margin="10" style="color:red;">@item.Publication</p>
+                <p style="color:black; margin-left: 12px;">@item.Publication</p>
+                <div class="container" style="color:blue;">
+                    <div class="col1">Command</div>
+                    <div class="col2">Module</div>
+                    <div class="col1">Date</div>
+                    <div class="col1">% Score</div>
+                    <div class="col1">Verdict</div>
+                    <div class="col1">Normal points</div>
+                    <div class="col1">Ethics points</div>
+                </div>
+
             }
            
             <div class="container">
